@@ -37,7 +37,9 @@ function get_comments () {
 function gen_ul (comments) {
     var str = ''
     comments.forEach(function(comment) {
-        str += '<p><h4>' + Autolinker.link(comment['message']) + '</h4><br>' + comment['name'] + ' ' + comment['created_at'] + '</p>'
+        str += '<p><h4>' + Autolinker.link(comment['message'], {
+            mention: 'twitter'
+        }) + '</h4><br>' + comment['name'] + ' ' + comment['created_at'] + '</p>'
     })
     var div_comment = document.createElement("div")
     div_comment.style.overflow = "scroll"
@@ -69,4 +71,3 @@ document.onkeyup = function(e){
   }
   
   document.querySelector("img.logo").setAttribute("src", "https://chainsawriot.github.io/icyace2020/ica_kai.png")
-  
